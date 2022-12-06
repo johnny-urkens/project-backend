@@ -25,6 +25,13 @@ namespace Utopia2._0
             services.AddDbContext<UtopiaContext>(opt =>
                 opt.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder
+             =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -46,7 +53,7 @@ namespace Utopia2._0
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("MyPolicy");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
