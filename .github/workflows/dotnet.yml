@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-        file: ./project-backend/Utopia2.0/Dockerfile
+        file: ./project-backend/project-backend/Dockerfile
     - name: Restore dependencies
       run: dotnet restore Utopia2.0.DAL/Utopia2.0.DAL.csproj
     - name: Restore dependencies
