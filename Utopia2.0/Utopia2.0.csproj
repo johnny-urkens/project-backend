@@ -5,6 +5,7 @@
     <RootNamespace>Utopia2._0</RootNamespace>
     <UserSecretsId>84e230e5-383a-4b2e-9da4-dc7d73f7c712</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
