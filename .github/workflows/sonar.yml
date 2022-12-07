@@ -43,5 +43,8 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"johnny-urkens_project-backend" /o:"johnny-urkens" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build
+          dotnet restore Utopia2.0.DAL/Utopia2.0.DAL.csproj
+          dotnet restore Utopia2.0/Utopia2.0.csproj
+          dotnet build Utopia2.0.DAL/Utopia2.0.DAL.csproj --no-restore
+          dotnet build Utopia2.0/Utopia2.0.csproj --no-restore
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
